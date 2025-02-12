@@ -6,7 +6,7 @@ This repository contains a customized `.bashrc` file with various configurations
 
 ### Directory Navigation
 
-- **Change Directory to Desktop**: Automatically changes the directory to `~/Desktop` upon opening a new terminal session.
+- **Change Directory to Desktop**: Automatically changes the directory to `~/Desktop` upon opening a new terminal session. **You can change it to the path that suits your needs**. 
 
 ### History Management
 
