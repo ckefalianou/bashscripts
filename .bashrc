@@ -119,64 +119,17 @@ if ! shopt -oq posix; then
 fi
 eval `ssh-agent`
 
-function checkout() {
-	local_branches=($(git for-each-ref --format='%(refname)' refs/heads/))
-	current_branch=($(git branch --show-current))
-	branch_index=0
-	is_current=""
-	COLOR='\033[0m'
-	local_branches_actual=()
-	echo "## LOCAL BRANCHES ##"
-	echo ''
-	for branch in "${local_branches[@]}"
-	do
-
-		branch_sed=$(echo $branch | sed '1s|^refs/heads/||')
-		local_branches_actual+=(${branch_sed})
-
-		if [[ "$current_branch" == "$branch_sed" ]]; then
-			is_current="(current)"
-			COLOR='\033[0;33m'
-		else
-			is_current=""
-			COLOR='\033[0m'
-		fi
-
-		echo -e "${COLOR}$branch_index. $branch_sed $is_current"
-
-		((branch_index=branch_index+1))
-	done
-
-	echo ''
-	read -p "Choose branch by number and hit enter: " branch_choose_index
-
-	if [[ $branch_choose_index -lt ${#local_branches_actual[@]} && $branch_choose_index -gt -1 ]]; then
-		git checkout ${local_branches_actual[$branch_choose_index]}
-	else
-		echo "No such branch in the list. Thank you!"
-	fi
-}
-
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 export PS1="\[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 
-function back() {
-path_variable=""
-for i in $(seq 1 $1)
-do
-	path_variable+=".."
-	if [[ $i -ne $1 ]]; then
-		path_variable+="/"
-	fi
-done
-cd $path_variable
-}
 
 alias mkcd='_mkcd(){ mkdir "$1"; cd "$1";}; _mkcd'
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias snr="sail npm run"
 alias opt:clear="sail artisan optimize:clear"
+alias checkout="bash ~/Desktop/scripts/checkout.sh"
+alias back='source ~/Desktop/scripts/back.sh'
 
 ssh-add ~/.ssh/id_ecdsa
