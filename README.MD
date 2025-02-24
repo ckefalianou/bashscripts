@@ -33,12 +33,12 @@ This repository contains a customized `.bashrc` file with various configurations
 - **sail**: Runs the Sail script if it exists, otherwise runs `vendor/bin/sail`.
 - **snr**: Alias for `sail npm run`.
 - **opt:clear**: Alias for `sail artisan optimize:clear`.
+- **checkout**: Lists local Git branches and allows the user to switch branches by selecting a number.
+- **back**: Changes the directory to a specified number of levels up.
 
 ### Functions
 
-- **checkout**: Lists local Git branches and allows the user to switch branches by selecting a number.
 - **parse_git_branch**: Parses the current Git branch and displays it in the prompt.
-- **back**: Changes the directory to a specified number of levels up.
 
 ### SSH Agent
 
