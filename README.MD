@@ -35,7 +35,6 @@ This repository contains a customized `.bashrc` file with various configurations
 - **opt:clear**: Alias for `sail artisan optimize:clear`.
 - **checkout**: Lists local Git branches and allows the user to switch branches by selecting a number.
 - **back**: Changes the directory to a specified number of levels up.
-- **check_sail**: Checks if docker is running.
 
 ### Functions
 
