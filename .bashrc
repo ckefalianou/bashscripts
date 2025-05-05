@@ -3,7 +3,6 @@
 # for examples
 
 cd ~/Desktop
-~/Desktop/scripts/check_sail.sh
 
 # If not running interactively, don't do anything
 case $- in
