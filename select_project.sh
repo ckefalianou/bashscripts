@@ -1,11 +1,11 @@
 function select_project() {
   PS3="Select project: "
-  options=("Cardealercrm" "DriversApp" "Nada")
+  options=("Project1" "Project1" "Nada")
 
   select opt in "${options[@]}"; do
     case $REPLY in
-      1) cd ~/Desktop/cardealercrm && break ;;
-      2) cd ~/Desktop/drivers-app && break ;;
+      1) cd ~/Desktop/Project1 && break ;;
+      2) cd ~/Desktop/Project2 && break ;;
       3) cd ~ && break ;;
       *) echo "Invalid option. Try again."; continue ;;
     esac
